@@ -10,6 +10,7 @@ create-conda-env: create-conda-env-file
 create-ci-dotenv-file:
 	./_setup/create_ci_dotenv_file.sh
 
+
 create-bodo-license-file:
 	env `cat .env` ./_setup/create_bodo_license_file.sh
 
@@ -22,11 +23,12 @@ launch-jupyterlab: create-ipython-profile start-mpi-controllers
 	jupyter-lab
 
 
+restart-mpi-controllers: stop-mpi-controllers start-mpi-controllers
+
+
 run-tests: restart-mpi-controllers
 	pytest --nbmake -vv notebooks/*.ipynb
 	$(MAKE) stop-mpi-controllers
-
-restart-mpi-controllers: stop-mpi-controllers start-mpi-controllers
 
 
 start-mpi-controllers:
