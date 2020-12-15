@@ -11,5 +11,3 @@ cp ${SETUP_DIR}/environment-template.yaml ${SETUP_DIR}/environment-dev.yaml
 sed -i "s/-\ python$/-\ python ${PYTHON_VERSION:-3.8.*}/" ${SETUP_DIR}/environment-dev.yaml
 sed -i "s/{{\s*BODO_CONDA_USERNAME\s*}}/${BODO_CONDA_USERNAME:-test-user}/" ${SETUP_DIR}/environment-dev.yaml
 sed -i "s/{{\s*BODO_CONDA_TOKEN\s*}}/${BODO_CONDA_TOKEN:-test-token}/" ${SETUP_DIR}/environment-dev.yaml
-
-conda env create --name bodoai-nb --file ${SETUP_DIR}/environment-dev.yaml --force
