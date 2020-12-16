@@ -138,6 +138,4 @@ _setup/environment-dev.yaml
 bodo.lic
 
 # temporary data
-notebooks/data/*.csv
-notebooks/data/*.json
-notebooks/data/*.pq
+notebooks/data/*
