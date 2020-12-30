@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+
+  omniscidb:
+    image: omnisci/core-os-cpu:latest
+    hostname: omniscidb
+    ports:
+      - 6274:6274
+      - 6278:6278
+    volumes:
+      - ./conf/omnisci.conf:/omnisci-storage/omnisci.conf
+      - ${NYC2015_DATA_DIR}:/tmp/nyc2015-data
+
+
+  waiter:
+    image: jwilder/dockerize
+    command: |
+      dockerize -wait tcp://omniscidb:6274
+                -wait-retry-interval 5s
+                -timeout 1m

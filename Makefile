@@ -1,3 +1,6 @@
+DOCKER := docker-compose --file docker/docker-compose.yaml
+SERVICES :=
+
 
 create-conda-env-file:
 	env `cat .env` ./_setup/create_conda_env_file.sh
@@ -37,3 +40,7 @@ start-mpi-controllers:
 
 stop-mpi-controllers:
 	./_setup/stop_mpi_controllers.sh
+
+
+start-services:
+	$(DOCKER) up -d ${SERVICES}

@@ -10,6 +10,7 @@ dependencies:
   - botocore
   - cmake  # used by horovod
   - dask
+  - docker-compose
   - ipyparallel
   - ipython
   - jupyterlab
