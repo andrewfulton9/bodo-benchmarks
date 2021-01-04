@@ -1,0 +1,7 @@
+name: bodo-docs
+channels:
+  - conda-forge
+dependencies:
+  - pip
+  - pip:
+    - jupyter-book
