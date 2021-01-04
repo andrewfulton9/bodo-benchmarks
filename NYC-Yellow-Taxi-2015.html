@@ -1,0 +1,1513 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using bodo to read and analyse NYC taxi data from 2015 &#8212; Tutorials about Bodo library</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Tutorials about Bodo library</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/NYC-Yellow-Taxi-2015.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Quansight/bodo-benchmarks"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Quansight/bodo-benchmarks/issues/new?title=Issue%20on%20page%20%2FNYC-Yellow-Taxi-2015.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Quansight/bodo-benchmarks/edit/main/NYC-Yellow-Taxi-2015.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Quansight/bodo-benchmarks/main?urlpath=tree/NYC-Yellow-Taxi-2015.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Using bodo to read and analyse NYC taxi data from 2015
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup">
+     Setup
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bodo-px-magic-command">
+       Bodo px magic command
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data-from-csv-files">
+   Load data from CSV files
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-aggregations-and-groupbys">
+     Basic Aggregations and Groupbys
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#joins-and-correlation">
+     Joins and Correlation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shuffles-and-time-series">
+     Shuffles and Time Series
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parquet">
+     Parquet
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#final-thoughts">
+     Final thoughts
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     References
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="using-bodo-to-read-and-analyse-nyc-taxi-data-from-2015">
+<h1>Using bodo to read and analyse NYC taxi data from 2015<a class="headerlink" href="#using-bodo-to-read-and-analyse-nyc-taxi-data-from-2015" title="Permalink to this headline">¶</a></h1>
+<p>This notebook aims to guide you throught the first steps using <strong>bodo</strong>. Also, it has some comparison an notes about the using <strong>bodo</strong> and pure python (+ numpy + pandas).</p>
+<p>This example is based on <a class="reference external" href="https://matthewrocklin.com/blog/work/2017/01/12/dask-dataframes">Matthew Rocklin blog post about dask</a>, so we highly recommend first you take a time to read that blog post. Here, we will focus on showing how to do the cited blog post code using <strong>bodo</strong> and show some information about the spent time for a pure pandas code and <strong>bodo</strong> code. We will add some comments about the changes we needed to do to have the code running using <strong>bodo</strong>.</p>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>First, you probably will need to download the NYC Yellow taxi data from 2015.
+Uncomment the following code and change the <strong>DATA_DIR</strong> to your local directory, so you can run the cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">%%bash</span>
+
+<span class="sd">URL_ROOT=https://s3.amazonaws.com/nyc-tlc/trip+data</span>
+<span class="sd">DATA_DIR=/work/bodoai/dataset/nyc-trip-2015</span>
+
+<span class="sd">for i in {1..12}; do</span>
+<span class="sd">    month=`printf &quot;%2.0d\n&quot; $i |sed &quot;s/ /0/&quot;`;</span>
+<span class="sd">    FILENAME=yellow_tripdata_2015-${month}.csv;</span>
+<span class="sd">    # wget -c ${URL_ROOT}/${FILENAME} -O ${DATA_DIR}/${FILENAME};</span>
+<span class="sd">done</span>
+<span class="sd">&quot;&quot;&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As <strong>bodo</strong> <strong>read_csv</strong> works easily with constant paths than variable paths, you can link this folder inside our current path (optional, uncomment the code below if you want to run it).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">%%bash</span>
+
+<span class="sd">mkdir -p ./data</span>
+<span class="sd">ln -s /work/bodoai/dataset/nyc-trip-2015 ./data</span>
+<span class="sd">&quot;&quot;&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls ./data/nyc-trip-2015
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ls: cannot access &#39;./data/nyc-trip-2015&#39;: No such file or directory
+</pre></div>
+</div>
+</div>
+</div>
+<p>As it is easier to work with <code class="docutils literal notranslate"><span class="pre">parquet</span></code> file than <code class="docutils literal notranslate"><span class="pre">csv</span></code> files, we will convert the <code class="docutils literal notranslate"><span class="pre">csv</span></code> files to a single <code class="docutils literal notranslate"><span class="pre">parquet</span></code> file (for now lets just use the first 3 files).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">7</span><span class="n">dd3504c366f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;./data/nyc-trip-2015&#39;</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">data_dir</span><span class="si">}</span><span class="s1">/yellow_tripdata_2015-</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">.csv&#39;</span><span class="p">,</span>
+        <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;tpep_pickup_datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;tpep_dropoff_datetime&#39;</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s1">&#39;./data/nyc-trip-2015/q1.pq&#39;</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls ./data/nyc-trip-2015
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>q1.pq			     yellow_tripdata_2015-02.csv
+yellow_tripdata_2015-01.csv  yellow_tripdata_2015-03.csv
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now it is almost ready to start, lets just import <code class="docutils literal notranslate"><span class="pre">bodo</span></code> (and <code class="docutils literal notranslate"><span class="pre">time</span></code> for profiling). Also, import matplotlib for plotting charts!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">bodo</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="bodo-px-magic-command">
+<h3>Bodo px magic command<a class="headerlink" href="#bodo-px-magic-command" title="Permalink to this headline">¶</a></h3>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">%px</span></code> magic command to run your cell using
+<a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/magics.html">MPI</a>.</p>
+<p><strong>NOTE:</strong> check <a class="reference external" href="https://docs.bodo.ai/latest/source/user_guide.html">bodo documentation</a>
+for more information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipyparallel</span> <span class="k">as</span> <span class="nn">ipp</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ipp</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s2">&quot;mpi&quot;</span><span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">c</span><span class="p">[:]</span>
+<span class="n">view</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+<span class="n">view</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">view</span><span class="p">[</span><span class="s2">&quot;cwd&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="o">%</span><span class="k">px</span> cd $cwd
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stdout:0] /home/xmn/dev/bodoai/bodo-benchmarks/notebooks
+[stdout:1] /home/xmn/dev/bodoai/bodo-benchmarks/notebooks
+[stdout:2] /home/xmn/dev/bodoai/bodo-benchmarks/notebooks
+[stdout:3] /home/xmn/dev/bodoai/bodo-benchmarks/notebooks
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-data-from-csv-files">
+<h1>Load data from CSV files<a class="headerlink" href="#load-data-from-csv-files" title="Permalink to this headline">¶</a></h1>
+<p>For an experimental purpose, it is using just the first 3 months of 2015,
+it is about 6GB in disk and 30 GB in RAM (for loading the data, not the dataframe in memory).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_data</span><span class="p">():</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s1">&#39;./data/nyc-trip-2015/q1.pq&#39;</span><span class="p">)</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;read_data execution time:&#39;</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>read_data execution time: 3.507601499557495 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lets check some information about the dataframe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 38551116 entries, 0 to 13351608
+Data columns (total 19 columns):
+ #   Column                 Dtype         
+---  ------                 -----         
+ 0   VendorID               int64         
+ 1   tpep_pickup_datetime   datetime64[ns]
+ 2   tpep_dropoff_datetime  datetime64[ns]
+ 3   passenger_count        int64         
+ 4   trip_distance          float64       
+ 5   pickup_longitude       float64       
+ 6   pickup_latitude        float64       
+ 7   RateCodeID             int64         
+ 8   store_and_fwd_flag     object        
+ 9   dropoff_longitude      float64       
+ 10  dropoff_latitude       float64       
+ 11  payment_type           int64         
+ 12  fare_amount            float64       
+ 13  extra                  float64       
+ 14  mta_tax                float64       
+ 15  tip_amount             float64       
+ 16  tolls_amount           float64       
+ 17  improvement_surcharge  float64       
+ 18  total_amount           float64       
+dtypes: datetime64[ns](2), float64(12), int64(4), object(1)
+memory usage: 5.7+ GB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, using bodo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">read_data</span> <span class="o">=</span> <span class="n">bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">read_data</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;read_data&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>read_data execution time: 9.118767976760864 s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 38551116 entries, 0 to 13351608
+Data columns (total 19 columns):
+ #   Column                 Dtype         
+---  ------                 -----         
+ 0   VendorID               int64         
+ 1   tpep_pickup_datetime   datetime64[ns]
+ 2   tpep_dropoff_datetime  datetime64[ns]
+ 3   passenger_count        int64         
+ 4   trip_distance          float64       
+ 5   pickup_longitude       float64       
+ 6   pickup_latitude        float64       
+ 7   RateCodeID             int64         
+ 8   store_and_fwd_flag     object        
+ 9   dropoff_longitude      float64       
+ 10  dropoff_latitude       float64       
+ 11  payment_type           int64         
+ 12  fare_amount            float64       
+ 13  extra                  float64       
+ 14  mta_tax                float64       
+ 15  tip_amount             float64       
+ 16  tolls_amount           float64       
+ 17  improvement_surcharge  float64       
+ 18  total_amount           float64       
+dtypes: datetime64[ns](2), float64(12), int64(4), object(1)
+memory usage: 5.7+ GB
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>NOTE:</strong> As you can see the consumed time was more than the python pure version. Probably it can have more benefits when using more data.</p>
+<div class="section" id="basic-aggregations-and-groupbys">
+<h2>Basic Aggregations and Groupbys<a class="headerlink" href="#basic-aggregations-and-groupbys" title="Permalink to this headline">¶</a></h2>
+<p>Let’s try some basic aggregation on our dataframe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean_by_each_passanger_count</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">trip_distance_mean</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;passenger_count&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">trip_distance</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">mean_by_each_passanger_count execution time:&#39;</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">trip_distance_mean</span>
+
+
+<span class="n">trip_distance_mean</span> <span class="o">=</span> <span class="n">mean_by_each_passanger_count</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">trip_distance_mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean_by_each_passanger_count execution time: 0.5278885364532471 s
+passenger_count
+0     2.245734
+1    16.757501
+2    12.369026
+3   -18.456581
+4    14.271708
+5     2.912368
+6     2.838362
+7     4.658491
+8     2.426512
+9     5.477000
+Name: trip_distance, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>NOTE:</strong> Originally, the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> was applied using <code class="docutils literal notranslate"><span class="pre">df.groupby('passenger_count')</span></code>, but this structure is not supported by <code class="docutils literal notranslate"><span class="pre">bodo</span></code> yet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_by_each_passanger_count</span> <span class="o">=</span> <span class="n">bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">mean_by_each_passanger_count</span><span class="p">)</span>
+
+<span class="n">trip_distance_mean</span> <span class="o">=</span> <span class="n">mean_by_each_passanger_count</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">trip_distance_mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;mean_by_each_passanger_count&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean_by_each_passanger_count execution time: 1.1836318969726562 s
+passenger_count
+1    16.757501
+3   -18.456581
+2    12.369026
+5     2.912368
+6     2.838362
+4    14.271708
+0     2.245734
+9     5.477000
+7     4.658491
+8     2.426512
+Name: trip_distance, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_tip_by_hour</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">tip_amount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">fare_amount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)]</span>
+    <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;tip_fraction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">tip_amount</span> <span class="o">/</span> <span class="n">df2</span><span class="o">.</span><span class="n">fare_amount</span>
+    <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">tpep_pickup_datetime</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
+    
+    <span class="n">hour</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;hour&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tip_fraction</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">calc_tip_by_hour execution time:&#39;</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">hour</span>
+
+<span class="n">tip_by_hour</span> <span class="o">=</span> <span class="n">calc_tip_by_hour</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">tip_by_hour</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-15-3fb56b97724f&gt;:5: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df2[&#39;tip_fraction&#39;] = df2.tip_amount / df2.fare_amount
+&lt;ipython-input-15-3fb56b97724f&gt;:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df2[&#39;hour&#39;] = df2.tpep_pickup_datetime.dt.hour
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calc_tip_by_hour execution time: 6.289813995361328 s
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;hour&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/NYC-Yellow-Taxi-2015_28_3.png" src="_images/NYC-Yellow-Taxi-2015_28_3.png" />
+</div>
+</div>
+<p><strong>NOTE:</strong> Originally, the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> was applied directly using <code class="docutils literal notranslate"><span class="pre">df2.groupby(df2.tpep_pickup_datetime.dt.hour)</span></code>
+but this structure is not supported by <code class="docutils literal notranslate"><span class="pre">bodo</span></code> yet.</p>
+<p>And, using <strong>bodo</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calc_tip_by_hour</span> <span class="o">=</span> <span class="n">bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">calc_tip_by_hour</span><span class="p">)</span>
+
+<span class="n">tip_by_hour</span> <span class="o">=</span> <span class="n">calc_tip_by_hour</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">tip_by_hour</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_tip_by_hour&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calc_tip_by_hour execution time: 2.666127920150757 s
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;hour&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/NYC-Yellow-Taxi-2015_31_3.png" src="_images/NYC-Yellow-Taxi-2015_31_3.png" />
+</div>
+</div>
+<p><strong>NOTE</strong>: The result needed to be ordered manually by index.</p>
+<p>If we plot our data and add a line with the average of the tips, we can see that
+the tips are better in the first hours and last hours of the day.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tip_by_hour</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tip_by_hour</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="p">[</span><span class="n">tip_by_hour</span><span class="o">.</span><span class="n">mean</span><span class="p">()]</span> <span class="o">*</span> <span class="n">tip_by_hour</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd22f242af0&gt;]
+</pre></div>
+</div>
+<img alt="_images/NYC-Yellow-Taxi-2015_34_1.png" src="_images/NYC-Yellow-Taxi-2015_34_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="joins-and-correlation">
+<h2>Joins and Correlation<a class="headerlink" href="#joins-and-correlation" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html"><strong>Data Frame Joins</strong></a> are very similar to databases <a class="reference external" href="https://en.wikipedia.org/wiki/Join_(SQL)"><strong>SQL joins</strong></a>. So, basically they are different ways to combine to resource data.</p>
+<p>So, lets play with our data:</p>
+<ul class="simple">
+<li><p>create a <code class="docutils literal notranslate"><span class="pre">series</span></code> that will map the <code class="docutils literal notranslate"><span class="pre">payment_type</span> <span class="pre">ID</span></code> to the payment name;</p></li>
+<li><p>join this series with the original data;</p></li>
+<li><p>show the average tip for each type of payment;</p></li>
+</ul>
+<p>To get it working with <strong>bodo</strong>, we need to check some recommendations from the <a class="reference external" href="https://docs.bodo.ai/latest/source/pandas.html#general-functions">documentation page</a> method:</p>
+<ul class="simple">
+<li><p>Arguments <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code> should be dataframes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">how</span></code>, <code class="docutils literal notranslate"><span class="pre">on</span></code>, <code class="docutils literal notranslate"><span class="pre">left_on</span></code>, <code class="docutils literal notranslate"><span class="pre">right_on</span></code>, <code class="docutils literal notranslate"><span class="pre">left_index</span></code>, and <code class="docutils literal notranslate"><span class="pre">right_index</span></code> are supported but should be constant values.</p></li>
+<li><p>The output dataframe is not sorted by default for better parallel performance (Pandas may preserve key order depending on how). One can use explicit sort if needed.</p></li>
+</ul>
+<p><strong>NOTE:</strong> the parameters for columns should be constant string instead of the data frame column object, for example, instead of <code class="docutils literal notranslate"><span class="pre">df.payment_type</span></code> use just <code class="docutils literal notranslate"><span class="pre">'payment_type'</span></code>.</p>
+<p><strong>NOTE:</strong> at this moment there is a bug related to join with index with <strong>bodo</strong>. the problem was already fixed and the solution will be available soon.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_average_by_payment_type</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">payments</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s1">&#39;payment_name&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;Credit Card&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Cash&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;No Charge&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Dispute&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Unknown&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Voided trip&#39;</span>
+        <span class="p">],</span> <span class="s2">&quot;IDX&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+    <span class="p">},)</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">payments</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;payment_type&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s2">&quot;IDX&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;payment_name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tip_amount</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;calc_average_by_payment_type execution time:&#39;</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">calc_average_by_payment_type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calc_average_by_payment_type execution time: 14.066501140594482 s
+(5,)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>payment_name
+Cash           0.000232
+Credit Card    2.758297
+Dispute       -0.012648
+No Charge      0.005050
+Unknown        0.000000
+Name: tip_amount, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calc_average_by_payment_type</span> <span class="o">=</span> <span class="n">bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">calc_average_by_payment_type</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">calc_average_by_payment_type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_average_by_payment_type&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calc_average_by_payment_type execution time: 4.786678075790405 s
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>payment_name
+Cash           0.000232
+Credit Card    2.758297
+Dispute       -0.012648
+No Charge      0.005050
+Unknown        0.000000
+Name: tip_amount, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see the average tip for <em>Cash</em> is very close to zero. Lets take a look with there is any correlation between cash payment and no tips (using Pearson correlation).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_corr_cash_tip</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">payments</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s1">&#39;payment_name&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;Credit Card&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Cash&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;No Charge&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Dispute&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Unknown&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Voided trip&#39;</span>
+        <span class="p">],</span> <span class="s2">&quot;IDX&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+    <span class="p">},)</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">payments</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;payment_type&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s2">&quot;IDX&quot;</span><span class="p">)</span>
+    
+    <span class="n">zero_tip</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">tip_amount</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">cash</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">payment_name</span> <span class="o">==</span> <span class="s1">&#39;Cash&#39;</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">zero_tip</span><span class="p">,</span> <span class="n">cash</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+    
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;calc_corr_cash_tip execution time:&#39;</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">calc_corr_cash_tip</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calc_corr_cash_tip execution time: 14.031903982162476 s
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tip_amount</th>
+      <th>payment_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>tip_amount</th>
+      <td>1.000000</td>
+      <td>0.944893</td>
+    </tr>
+    <tr>
+      <th>payment_name</th>
+      <td>0.944893</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>And, using <strong>bodo</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calc_corr_cash_tip</span> <span class="o">=</span> <span class="n">bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">calc_corr_cash_tip</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">calc_corr_cash_tip</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_corr_cash_tip&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calc_corr_cash_tip execution time: 3.9850640296936035 s
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.000000</td>
+      <td>0.944893</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.944893</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>And as we can see, there is a high correlation between paying in cash with no tip.</p>
+</div>
+<div class="section" id="shuffles-and-time-series">
+<h2>Shuffles and Time Series<a class="headerlink" href="#shuffles-and-time-series" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned by Matthew Rocklini in his <a class="reference external" href="https://matthewrocklin.com/blog/work/2017/01/12/dask-dataframes">blog post</a>, <code class="docutils literal notranslate"><span class="pre">suffle</span></code> is the base of computations like <code class="docutils literal notranslate"><span class="pre">groupby-apply</span></code>, distributed joins on columns that are not the index, etc.</p>
+<p>Let’s check how it performes with pure <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">bodo</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_tpep_pickup_datetime_as_index</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;tpep_pickup_datetime&#39;</span><span class="p">)</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;set_tpep_pickup_datetime_as_index execution time:&#39;</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">set_tpep_pickup_datetime_as_index</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>set_tpep_pickup_datetime_as_index execution time: 1.3675172328948975 s
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>VendorID</th>
+      <th>tpep_dropoff_datetime</th>
+      <th>passenger_count</th>
+      <th>trip_distance</th>
+      <th>pickup_longitude</th>
+      <th>pickup_latitude</th>
+      <th>RateCodeID</th>
+      <th>store_and_fwd_flag</th>
+      <th>dropoff_longitude</th>
+      <th>dropoff_latitude</th>
+      <th>payment_type</th>
+      <th>fare_amount</th>
+      <th>extra</th>
+      <th>mta_tax</th>
+      <th>tip_amount</th>
+      <th>tolls_amount</th>
+      <th>improvement_surcharge</th>
+      <th>total_amount</th>
+    </tr>
+    <tr>
+      <th>tpep_pickup_datetime</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-01-15 19:05:39</th>
+      <td>2</td>
+      <td>2015-01-15 19:23:42</td>
+      <td>1</td>
+      <td>1.59</td>
+      <td>-73.993896</td>
+      <td>40.750111</td>
+      <td>1</td>
+      <td>N</td>
+      <td>-73.974785</td>
+      <td>40.750618</td>
+      <td>1</td>
+      <td>12.0</td>
+      <td>1.0</td>
+      <td>0.5</td>
+      <td>3.25</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>17.05</td>
+    </tr>
+    <tr>
+      <th>2015-01-10 20:33:38</th>
+      <td>1</td>
+      <td>2015-01-10 20:53:28</td>
+      <td>1</td>
+      <td>3.30</td>
+      <td>-74.001648</td>
+      <td>40.724243</td>
+      <td>1</td>
+      <td>N</td>
+      <td>-73.994415</td>
+      <td>40.759109</td>
+      <td>1</td>
+      <td>14.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>2.00</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>17.80</td>
+    </tr>
+    <tr>
+      <th>2015-01-10 20:33:38</th>
+      <td>1</td>
+      <td>2015-01-10 20:43:41</td>
+      <td>1</td>
+      <td>1.80</td>
+      <td>-73.963341</td>
+      <td>40.802788</td>
+      <td>1</td>
+      <td>N</td>
+      <td>-73.951820</td>
+      <td>40.824413</td>
+      <td>2</td>
+      <td>9.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>10.80</td>
+    </tr>
+    <tr>
+      <th>2015-01-10 20:33:39</th>
+      <td>1</td>
+      <td>2015-01-10 20:35:31</td>
+      <td>1</td>
+      <td>0.50</td>
+      <td>-74.009087</td>
+      <td>40.713818</td>
+      <td>1</td>
+      <td>N</td>
+      <td>-74.004326</td>
+      <td>40.719986</td>
+      <td>2</td>
+      <td>3.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>4.80</td>
+    </tr>
+    <tr>
+      <th>2015-01-10 20:33:39</th>
+      <td>1</td>
+      <td>2015-01-10 20:52:58</td>
+      <td>1</td>
+      <td>3.00</td>
+      <td>-73.971176</td>
+      <td>40.762428</td>
+      <td>1</td>
+      <td>N</td>
+      <td>-74.004181</td>
+      <td>40.742653</td>
+      <td>2</td>
+      <td>15.0</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>16.30</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now, that the dataframe has been indexed with date and time format, the time series functionallity is available:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_passenger_count_by_day</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">passenger_count</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;1d&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;calc_passenger_count_by_day execution time:&#39;</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="n">calc_passenger_count_by_day</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calc_passenger_count_by_day execution time: 9.475220918655396 s
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;tpep_pickup_datetime&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/NYC-Yellow-Taxi-2015_48_2.png" src="_images/NYC-Yellow-Taxi-2015_48_2.png" />
+</div>
+</div>
+<p>And, as always, using <strong>bodo</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">set_tpep_pickup_datetime_as_index</span> <span class="o">=</span> <span class="n">bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">set_tpep_pickup_datetime_as_index</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">set_tpep_pickup_datetime_as_index</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;set_tpep_pickup_datetime_as_index&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>set_tpep_pickup_datetime_as_index execution time: 0.9352290630340576 s
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>VendorID</th>
+      <th>tpep_dropoff_datetime</th>
+      <th>passenger_count</th>
+      <th>trip_distance</th>
+      <th>pickup_longitude</th>
+      <th>pickup_latitude</th>
+      <th>RateCodeID</th>
+      <th>store_and_fwd_flag</th>
+      <th>dropoff_longitude</th>
+      <th>dropoff_latitude</th>
+      <th>payment_type</th>
+      <th>fare_amount</th>
+      <th>extra</th>
+      <th>mta_tax</th>
+      <th>tip_amount</th>
+      <th>tolls_amount</th>
+      <th>improvement_surcharge</th>
+      <th>total_amount</th>
+    </tr>
+    <tr>
+      <th>tpep_pickup_datetime</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-01-15 19:05:39</th>
+      <td>2</td>
+      <td>2015-01-15 19:23:42</td>
+      <td>1</td>
+      <td>1.59</td>
+      <td>-73.993896</td>
+      <td>40.750111</td>
+      <td>1</td>
+      <td>N</td>
+      <td>-73.974785</td>
+      <td>40.750618</td>
+      <td>1</td>
+      <td>12.0</td>
+      <td>1.0</td>
+      <td>0.5</td>
+      <td>3.25</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>17.05</td>
+    </tr>
+    <tr>
+      <th>2015-01-10 20:33:38</th>
+      <td>1</td>
+      <td>2015-01-10 20:53:28</td>
+      <td>1</td>
+      <td>3.30</td>
+      <td>-74.001648</td>
+      <td>40.724243</td>
+      <td>1</td>
+      <td>N</td>
+      <td>-73.994415</td>
+      <td>40.759109</td>
+      <td>1</td>
+      <td>14.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>2.00</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>17.80</td>
+    </tr>
+    <tr>
+      <th>2015-01-10 20:33:38</th>
+      <td>1</td>
+      <td>2015-01-10 20:43:41</td>
+      <td>1</td>
+      <td>1.80</td>
+      <td>-73.963341</td>
+      <td>40.802788</td>
+      <td>1</td>
+      <td>N</td>
+      <td>-73.951820</td>
+      <td>40.824413</td>
+      <td>2</td>
+      <td>9.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>10.80</td>
+    </tr>
+    <tr>
+      <th>2015-01-10 20:33:39</th>
+      <td>1</td>
+      <td>2015-01-10 20:35:31</td>
+      <td>1</td>
+      <td>0.50</td>
+      <td>-74.009087</td>
+      <td>40.713818</td>
+      <td>1</td>
+      <td>N</td>
+      <td>-74.004326</td>
+      <td>40.719986</td>
+      <td>2</td>
+      <td>3.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>4.80</td>
+    </tr>
+    <tr>
+      <th>2015-01-10 20:33:39</th>
+      <td>1</td>
+      <td>2015-01-10 20:52:58</td>
+      <td>1</td>
+      <td>3.00</td>
+      <td>-73.971176</td>
+      <td>40.762428</td>
+      <td>1</td>
+      <td>N</td>
+      <td>-74.004181</td>
+      <td>40.742653</td>
+      <td>2</td>
+      <td>15.0</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>16.30</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>NOTE:</strong> at this moment, <code class="docutils literal notranslate"><span class="pre">calc_passenger_count_by_day</span></code> cannot be used with <strong>bodo</strong> because <code class="docutils literal notranslate"><span class="pre">Series.resample</span></code> is not supported yet.</p>
+</div>
+<div class="section" id="parquet">
+<h2>Parquet<a class="headerlink" href="#parquet" title="Permalink to this headline">¶</a></h2>
+<p>According to the <a class="reference external" href="https://parquet.apache.org/">Parquet web page</a>:</p>
+<blockquote>
+<div><p>Apache Parquet is a columnar storage format available to any project in the Hadoop ecosystem, regardless of the choice of data processing framework, data model or programming language.</p>
+</div></blockquote>
+<p>This blog post is already using <code class="docutils literal notranslate"><span class="pre">parquet</span></code> file for data storage.</p>
+</div>
+<div class="section" id="final-thoughts">
+<h2>Final thoughts<a class="headerlink" href="#final-thoughts" title="Permalink to this headline">¶</a></h2>
+<p>Although the <strong>bodo</strong> functions have showed a better performance (~20x faster), we need to take in account that the measured was done inside the function and it didn’t considered the time for the entire workflow. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_tip_average_by_payment</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;payment_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tip_amount</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">calc_tip_average_by_payment</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;calc_tip_average_by_payment execution time:&#39;</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>payment_type
+1    2.758297
+2    0.000232
+3    0.005050
+4   -0.012648
+5    0.000000
+Name: tip_amount, dtype: float64
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calc_tip_average_by_payment execution time: 0.4486424922943115 s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calc_tip_average_by_payment</span> <span class="o">=</span> <span class="n">bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">calc_tip_average_by_payment</span><span class="p">)</span>
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">calc_tip_average_by_payment</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;calc_tip_average_by_payment execution time:&#39;</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_tip_average_by_payment&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>payment_type
+1    2.758297
+2    0.000232
+3    0.005050
+4   -0.012648
+5    0.000000
+Name: tip_amount, dtype: float64
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calc_tip_average_by_payment execution time: 1.6555366516113281 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see the bodo function is more than 3 times slower than the pure <code class="docutils literal notranslate"><span class="pre">pandas</span></code> version. Also, if we run it for once again, the diffence is very low.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">calc_tip_average_by_payment</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;calc_tip_average_by_payment execution time:&#39;</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>payment_type
+1    2.758297
+2    0.000232
+3    0.005050
+4   -0.012648
+5    0.000000
+Name: tip_amount, dtype: float64
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calc_tip_average_by_payment execution time: 1.0147950649261475 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we measure the time inside the function, we can observe that the used time is very short.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@bodo</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span> <span class="nf">calc_tip_average_by_payment</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;payment_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tip_amount</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;calc_tip_average_by_payment execution time:&#39;</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="n">calc_tip_average_by_payment</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_tip_average_by_payment&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calc_tip_average_by_payment execution time: 0.9820868968963623 s
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>payment_type
+1    2.758297
+2    0.000232
+3    0.005050
+4   -0.012648
+5    0.000000
+Name: tip_amount, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>The original blob post that was used as inspiration here can be accessed at:</p>
+<ul class="simple">
+<li><p>https://matthewrocklin.com/blog/work/2017/01/12/dask-dataframes</p></li>
+</ul>
+<p>For more informations about `bodo, check out its documentation page:</p>
+<ul class="simple">
+<li><p>https://docs.bodo.ai/latest/source/user_guide.html</p></li>
+</ul>
+<p>And maybe you will find useful some extra information about spme <code class="docutils literal notranslate"><span class="pre">pandas</span></code> commands used:</p>
+<ul class="simple">
+<li><p>https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html</p></li>
+</ul>
+<p>Also, if you want to check out some extra comment about some SQL topics:</p>
+<ul class="simple">
+<li><p>https://en.wikipedia.org/wiki/Join_(SQL)</p></li>
+</ul>
+<p>For more information about Pearson correlation:</p>
+<ul class="simple">
+<li><p>https://en.wikipedia.org/wiki/Pearson_correlation_coefficient</p></li>
+</ul>
+<p>Parquet documentation page:</p>
+<ul class="simple">
+<li><p>https://parquet.apache.org/documentation/latest/</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Quansight Team<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

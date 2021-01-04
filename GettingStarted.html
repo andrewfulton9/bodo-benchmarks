@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Getting start with Bodo &#8212; Tutorials about Bodo library</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Tutorials about Bodo library</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/GettingStarted.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Quansight/bodo-benchmarks"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Quansight/bodo-benchmarks/issues/new?title=Issue%20on%20page%20%2FGettingStarted.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Quansight/bodo-benchmarks/edit/main/GettingStarted.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Quansight/bodo-benchmarks/main?urlpath=tree/GettingStarted.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benchmark">
+   Benchmark
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="getting-start-with-bodo">
+<h1>Getting start with Bodo<a class="headerlink" href="#getting-start-with-bodo" title="Permalink to this headline">¶</a></h1>
+<p><strong>Bodo</strong> is the key part of the <strong>Bodo.ai</strong> platform, a solution that provides a user-friendly interface for data team, through Jupyter Notebooks and Job instances easily integrated with AWS account. <strong>Bodo</strong> was built on top of very well known open source technologies such as <strong>Numba</strong>, <strong>Pandas</strong>, <strong>Numpy</strong>, <strong>MPI</strong> and <strong>LLVM</strong>.</p>
+<p><img alt="https://bodo.ai/technology/" src="_images/bodo-technologies.png" /></p>
+<p>You can write <strong>bodo</strong> code as easy as you would write <strong>numba</strong> code, just using a <code class="docutils literal notranslate"><span class="pre">jit</span></code>(just-in-time) decorator, for example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">bodo</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">53379201</span><span class="n">b82e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">time</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">bodo</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;bodo&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lazy compilation</span>
+<span class="nd">@bodo</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span> <span class="nf">calc_add</span><span class="p">(</span><span class="n">series</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">scalar</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">series</span> <span class="o">+</span> <span class="n">scalar</span>
+
+
+<span class="n">calc_add</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_add&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    100
+1    101
+2    102
+3    103
+4    104
+5    105
+6    106
+7    107
+8    108
+9    109
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, you can write thecode in the same way you would write it using <strong>numba</strong>.
+Also, you can also decide to use lazy or eager compilation
+(see <a class="reference external" href="https://numba.pydata.org/numba-doc/latest/user/jit.html">numba documentation</a>).</p>
+<p>When using lazy compilation, you don’t need to specify the allowed signatures for the
+function you want to compile using <strong>bodo</strong>. For example, when you decorated <code class="docutils literal notranslate"><span class="pre">calc_add</span></code>
+with <code class="docutils literal notranslate"><span class="pre">bodo.jit</span></code>, you didn’t specify what data type is used by each parameter neither
+the data type returned. As you can observe, it just have the type annotation, but it is not
+enough to compile the function. Instead, with you want to compile the function for a specific
+type, you need to do it with the <code class="docutils literal notranslate"><span class="pre">jit</span></code> decorator as shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># eager compilation</span>
+<span class="nd">@bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="s1">&#39;int64(int64, int64)&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">calc_sum</span><span class="p">(</span><span class="n">scalar1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">scalar2</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">scalar1</span> <span class="o">+</span> <span class="n">scalar2</span>
+
+
+<span class="n">calc_sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>110
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, you will compile the function before the function call, so when
+the function is called, it didn’t need to spent time compiling the function.
+Let’s check the execution time difference between lazy, eager and pure <code class="docutils literal notranslate"><span class="pre">pandas</span></code>/<code class="docutils literal notranslate"><span class="pre">numpy</span></code> approach.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">data</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;age&#39;</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      0
+1      1
+2      2
+3      3
+4      4
+      ..
+95    95
+96    96
+97    97
+98    98
+99    99
+Name: age, Length: 100, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pure pandas/numpy approach</span>
+<span class="k">def</span> <span class="nf">calc_add</span><span class="p">(</span><span class="n">series</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">scalar</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">series</span> <span class="o">+</span> <span class="n">scalar</span>
+
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">calc_add</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Execution time:&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Execution time: 0.0022001266479492188 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, using pure <strong>pandas/numpy</strong> this operation takes ~0.002s to finish.
+Now, lets take a look how to “jitify” this using <strong>bodo</strong> for <strong>lazy compilation</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lazy_calc_add</span> <span class="o">=</span> <span class="n">bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">calc_add</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">lazy_calc_add</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Execution time:&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Execution time: 0.3691263198852539 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_add&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+</div>
+</div>
+<p>The lazy compilation took more than 100 times than the pure
+<strong>pandas/numpy</strong> approach. That happens because there is an overhead for the
+compilation. Now, that the function is already “jitified”, lets take a look
+if has any peformance improvement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">lazy_calc_add</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Execution time:&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Execution time: 0.0005719661712646484 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">lazy_calc_add</span></code> now performes much faster than the first time,
+also much faster than the pure <strong>pandas/numpy</strong> version.
+That is a amazing improvement! Maybe if you run it again, maybe the time execution would be
+different. So, in the next section, we will get the average of 1000 executions to have a better
+idea about the performance. Also, it is good to have in mind that the tests are using a very small
+dataset. We will add more tests using a larger dataset too to check the difference.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SE_INDEX_RANGE_TYPE</span> <span class="o">=</span> <span class="n">bodo</span><span class="o">.</span><span class="n">SeriesType</span><span class="p">(</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="n">bodo</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> 
+    <span class="n">index</span><span class="o">=</span><span class="n">bodo</span><span class="o">.</span><span class="n">RangeIndexType</span><span class="p">(</span><span class="n">bodo</span><span class="o">.</span><span class="n">none</span><span class="p">),</span>
+    <span class="n">name_typ</span><span class="o">=</span><span class="n">bodo</span><span class="o">.</span><span class="n">string_type</span>
+<span class="p">)</span>
+
+<span class="n">SE_INDEX_NUMERIC_TYPE</span> <span class="o">=</span> <span class="n">bodo</span><span class="o">.</span><span class="n">SeriesType</span><span class="p">(</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="n">bodo</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> 
+    <span class="n">index</span><span class="o">=</span><span class="n">bodo</span><span class="o">.</span><span class="n">NumericIndexType</span><span class="p">(</span><span class="n">bodo</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span>
+    <span class="n">name_typ</span><span class="o">=</span><span class="n">bodo</span><span class="o">.</span><span class="n">string_type</span>
+<span class="p">)</span>
+
+<span class="n">SE_TYPES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">SE_INDEX_RANGE_TYPE</span><span class="p">(</span><span class="n">SE_INDEX_RANGE_TYPE</span><span class="p">,</span> <span class="n">bodo</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span>
+    <span class="n">SE_INDEX_NUMERIC_TYPE</span><span class="p">(</span><span class="n">SE_INDEX_NUMERIC_TYPE</span><span class="p">,</span> <span class="n">bodo</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">eager_calc_add</span> <span class="o">=</span> <span class="n">bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">SE_TYPES</span><span class="p">)(</span><span class="n">calc_add</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">eager_calc_add</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Execution time:&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_add&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Execution time: 0.0004069805145263672 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_add&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+</div>
+</div>
+<p>In its first execution, the execution time of the <strong>eager compiled</strong> function
+was near the second execution of the <strong>lazy compiled</strong> function.</p>
+<div class="section" id="benchmark">
+<h2>Benchmark<a class="headerlink" href="#benchmark" title="Permalink to this headline">¶</a></h2>
+<p>Now, lets measure the time for 1000 executions and take the average for each approach for both a small and large dataset.</p>
+<p>So, first, we will need to download some data. For this benchmark, we will use the 2015 NYC Taxi Trip dataset,
+available at <code class="docutils literal notranslate"><span class="pre">https://s3.amazonaws.com/nyc-tlc/trip+data</span></code>. For our propose, we will just download the first
+3 months. To download the data, uncomment the following cell, set <code class="docutils literal notranslate"><span class="pre">DATA_DIR</span></code> to your data folder and run it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">%%bash</span>
+
+<span class="sd">URL_ROOT=https://s3.amazonaws.com/nyc-tlc/trip+data</span>
+<span class="sd">DATA_DIR=/work/bodoai/dataset/nyc-trip-2015</span>
+
+<span class="sd">mkdir -p ${DATA_DIR} </span>
+
+<span class="sd">for i in {1..3}; do</span>
+<span class="sd">    month=`printf &quot;%2.0d\n&quot; $i |sed &quot;s/ /0/&quot;`;</span>
+<span class="sd">    FILENAME=yellow_tripdata_2015-${month}.csv;</span>
+<span class="sd">    wget -c ${URL_ROOT}/${FILENAME} -O ${DATA_DIR}/${FILENAME};</span>
+<span class="sd">done</span>
+<span class="sd">&quot;&quot;&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Second step, join the three <code class="docutils literal notranslate"><span class="pre">CSV</span></code> trip files to a single <code class="docutils literal notranslate"><span class="pre">Parquet</span></code> file
+(skip the following cell if you already have the <code class="docutils literal notranslate"><span class="pre">parquet</span></code> data):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;./data/nyc-trip-2015&#39;</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">data_dir</span><span class="si">}</span><span class="s1">/yellow_tripdata_2015-</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">.csv&#39;</span><span class="p">,</span>
+        <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;tpep_pickup_datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;tpep_dropoff_datetime&#39;</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">df</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s1">&#39;./data/nyc-trip-2015/q1.pq&#39;</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">large_dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s1">&#39;./data/nyc-trip-2015/q1.pq&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">passenger_count</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;small&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="s1">&#39;large&#39;</span><span class="p">:</span> <span class="n">large_dataset</span><span class="p">}</span>
+<span class="n">methods</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;pure_pandas_numpy&#39;</span><span class="p">:</span> <span class="n">calc_add</span><span class="p">,</span> 
+    <span class="s1">&#39;lazy_compilation&#39;</span><span class="p">:</span> <span class="n">bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">calc_add</span><span class="p">),</span>
+    <span class="s1">&#39;eager_compilation&#39;</span><span class="p">:</span> <span class="n">bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">SE_TYPES</span><span class="p">)(</span><span class="n">calc_add</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">execution_time</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;small&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="s1">&#39;large&#39;</span><span class="p">:</span> <span class="p">{}}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_add&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_add&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="k">for</span> <span class="n">d_name</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="c1"># force the recreation of lazy_compilation</span>
+    <span class="n">methods</span><span class="p">[</span><span class="s1">&#39;lazy_compilation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">calc_add</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">m_name</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">methods</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="n">m</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+            <span class="n">t</span> <span class="o">+=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t1</span>
+        
+        <span class="n">execution_time</span><span class="p">[</span><span class="n">d_name</span><span class="p">][</span><span class="n">m_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="o">/</span><span class="n">N</span>
+<span class="n">execution_time</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_add&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_add&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;small&#39;: {&#39;pure_pandas_numpy&#39;: 8.463740348815918e-05,
+  &#39;lazy_compilation&#39;: 0.00033594441413879397,
+  &#39;eager_compilation&#39;: 0.00011157751083374024},
+ &#39;large&#39;: {&#39;pure_pandas_numpy&#39;: 0.0470913679599762,
+  &#39;lazy_compilation&#39;: 0.07897129654884338,
+  &#39;eager_compilation&#39;: 0.0794542350769043}}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">size_name</span><span class="p">,</span> <span class="n">size_collection</span> <span class="ow">in</span> <span class="n">execution_time</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    
+    <span class="k">for</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">method_time</span> <span class="ow">in</span> <span class="n">size_collection</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">size_collection</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">size_collection</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">size_name</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/GettingStarted_25_0.png" src="_images/GettingStarted_25_0.png" />
+<img alt="_images/GettingStarted_25_1.png" src="_images/GettingStarted_25_1.png" />
+</div>
+</div>
+<p>As we can observe, for small dataset the compilation overhead for <strong>lazy compilation</strong> increase a lot the
+execution time, but for large dataset it doesn’t have a considered impact.</p>
+<p>Another thing we can observe is that pure <strong>numpy/pandas</strong> has a better performance compared to
+both <strong>eager compilation</strong> and <strong>lazy compilation</strong>. That is because there are some overhead internal calls
+before the actual code are executed, if we were measuring the time inside the function we will notice a
+very different result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pure pandas/numpy approach</span>
+<span class="k">def</span> <span class="nf">calc_add</span><span class="p">(</span><span class="n">series</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">scalar</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">series</span> <span class="o">+</span> <span class="n">scalar</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Execution time:&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PURE PANDAS/NUMPY&#39;</span><span class="p">)</span>
+<span class="n">calc_add</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;USING BODO WITH EAGER COMPILATION&#39;</span><span class="p">)</span>
+<span class="n">eager_calc_add</span> <span class="o">=</span> <span class="n">bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">SE_TYPES</span><span class="p">)(</span><span class="n">calc_add</span><span class="p">)</span>
+<span class="n">calc_add</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>========================================
+PURE PANDAS/NUMPY
+Execution time: 0.0005979537963867188 s
+========================================
+USING BODO WITH EAGER COMPILATION
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_add&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Execution time: 0.00023746490478515625 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_add&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, the <strong>bodo</strong> function was faster than the pure <strong>pandas/numpy</strong> one.
+Lets take a look if it happens also with a larger dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">large_dataset</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(38551116,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PURE PANDAS/NUMPY&#39;</span><span class="p">)</span>
+<span class="n">calc_add</span><span class="p">(</span><span class="n">large_dataset</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;USING BODO WITH EAGER COMPILATION&#39;</span><span class="p">)</span>
+<span class="n">eager_calc_add</span> <span class="o">=</span> <span class="n">bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">SE_TYPES</span><span class="p">)(</span><span class="n">calc_add</span><span class="p">)</span>
+<span class="n">calc_add</span><span class="p">(</span><span class="n">large_dataset</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>========================================
+PURE PANDAS/NUMPY
+Execution time: 0.07764172554016113 s
+========================================
+USING BODO WITH EAGER COMPILATION
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_add&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Execution time: 0.046428680419921875 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;calc_add&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>Until now, we learned how to create <strong>bodo</strong> functions in <strong>lazy</strong> and <strong>eager</strong> mode.
+Also we measured in different ways the <strong>bodo</strong> functions and the pure <strong>numpy/pandas</strong> functions and
+we observed the difference between them.</p>
+<p>As a follow-up work, we will check how to improve our workflow running the code in parallel!</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Quansight Team<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
