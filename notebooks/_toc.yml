@@ -1,2 +1,3 @@
 file: 00_introduction
-file: 05_distributed
+sections:
+- file: 05_distributed
