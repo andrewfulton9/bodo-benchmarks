@@ -1,0 +1,919 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Distributed &#8212; Tutorials about Bodo library</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Tutorials about Bodo library</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/05_distributed.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Quansight/bodo-benchmarks"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Quansight/bodo-benchmarks/issues/new?title=Issue%20on%20page%20%2F05_distributed.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Quansight/bodo-benchmarks/edit/main/05_distributed.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Quansight/bodo-benchmarks/main?urlpath=tree/05_distributed.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-questions-to-consider">
+   Some Questions to Consider:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-a-cluster">
+   Making a cluster
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ipython-parallel">
+     IPython parallel
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src="img/logo.svg" align="right" style="background:black;height:50px; padding-left:5px;padding-right:5px;padding-bottom:0px;"><div class="section" id="distributed">
+<h1>Distributed<a class="headerlink" href="#distributed" title="Permalink to this headline">¶</a></h1>
+<p>According to <a class="reference external" href="https://docs.bodo.ai/latest/source/getting_started.html">Bodo documentation</a>,
+<em>Bodo can scale your analytics code to thousands of cores, providing orders of magnitude speed up depending on program characteristics</em>.
+To accomplish that, <strong>bodo</strong> uses <a class="reference external" href="https://en.wikipedia.org/wiki/Message_Passing_Interface">MPI</a>
+under the hood. In order oo used that, you need to:</p>
+<ol class="simple">
+<li><p>decorate your function with <code class="docutils literal notranslate"><span class="pre">bodo.jit</span></code>, and</p></li>
+<li><p>if you want to run a python script, use <code class="docutils literal notranslate"><span class="pre">mpiexec</span></code> or,</p></li>
+<li><p>if you are using <code class="docutils literal notranslate"><span class="pre">JupyterLab</span></code>, use <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/magics.html">%%px magic</a>.</p></li>
+</ol>
+<p>As we are working here inside the <strong>JupyterLab</strong>, we will need to prepare the <code class="docutils literal notranslate"><span class="pre">%%px</span></code> magic:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipyparallel</span> <span class="k">as</span> <span class="nn">ipp</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ipp</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s2">&quot;mpi&quot;</span><span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">c</span><span class="p">[:]</span>
+<span class="n">view</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+<span class="n">view</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">view</span><span class="p">[</span><span class="s2">&quot;cwd&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="o">%</span><span class="k">px</span> cd $cwd
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">555</span><span class="n">bcc3c1597</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">ipyparallel</span> <span class="k">as</span> <span class="nn">ipp</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">c</span> <span class="o">=</span> <span class="n">ipp</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s2">&quot;mpi&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">view</span> <span class="o">=</span> <span class="n">c</span><span class="p">[:]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">view</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">view</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;ipyparallel&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, lets create some dataset to test the parallelization with <strong>bodo</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">bodo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NUM_GROUPS</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">NUM_ROWS</span> <span class="o">=</span> <span class="mi">20_000_000</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">NUM_ROWS</span><span class="p">)</span> <span class="o">%</span> <span class="n">NUM_GROUPS</span><span class="p">,</span>
+    <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">NUM_ROWS</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s2">&quot;data/example1.pq&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           A         B
+0          0         0
+1          1         1
+2          2         2
+3          3         3
+4          4         4
+...       ..       ...
+19999995  15  19999995
+19999996  16  19999996
+19999997  17  19999997
+19999998  18  19999998
+19999999  19  19999999
+
+[20000000 rows x 2 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, run the following code to see its behavior.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">px</span>
+import bodo
+import pandas as pd
+
+@bodo.jit
+def test():
+    df = pd.read_parquet(&quot;data/example1.pq&quot;)
+    df2 = df.groupby(&quot;A&quot;).sum()
+    m = df2.B.max()
+    return m
+
+m = test()
+print(m)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stdout:0] 6666676000003
+[stdout:1] 6666676000003
+[stdout:2] 6666676000003
+[stdout:3] 6666676000003
+</pre></div>
+</div>
+</div>
+</div>
+<p>For this tutorial, we will use the same dataset used by the
+<a class="reference external" href="https://github.com/dask/dask-tutorial/">dask tutorial</a>
+the code for the data preparation can be accessed at
+https://github.com/dask/dask-tutorial/blob/master/prep.py
+and it is under the license https://github.com/dask/dask-tutorial/blob/master/LICENSE.txt</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data preparation</span>
+<span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">tarfile</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="k">def</span> <span class="nf">flights</span><span class="p">(</span><span class="n">small</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    
+    <span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;./data/&#39;</span>
+    <span class="n">flights_url</span> <span class="o">=</span> <span class="s2">&quot;https://storage.googleapis.com/dask-tutorial-data/nycflights.tar.gz&quot;</span>
+    
+    <span class="n">flights_raw</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;nycflights.tar.gz&#39;</span><span class="p">)</span>
+    <span class="n">flightdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;nycflights&#39;</span><span class="p">)</span>
+    <span class="n">jsondir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;flightjson&#39;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">small</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">small</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;DASK_TUTORIAL_SMALL&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">small</span><span class="p">:</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="mi">500</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="mi">10_000</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">flights_raw</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Downloading NYC Flights dataset... &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">flights_url</span>
+        <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">flights_raw</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">flightdir</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Extracting flight data... &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">tar_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;nycflights.tar.gz&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tar_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r:gz&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">flights</span><span class="p">:</span>
+            <span class="n">flights</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s1">&#39;data/&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">small</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s2">&quot;nycflights&quot;</span><span class="p">,</span> <span class="s2">&quot;*.csv&quot;</span><span class="p">)):</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()[:</span><span class="mi">1000</span><span class="p">]</span>
+
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">jsondir</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Creating json data... &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">jsondir</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;nycflights&#39;</span><span class="p">,</span> <span class="s1">&#39;*.csv&#39;</span><span class="p">)):</span>
+            <span class="n">prefix</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;flightjson&#39;</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;.json&#39;</span><span class="p">),</span>
+                       <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;** Created flights dataset! in </span><span class="si">{:0.2f}</span><span class="s2">s**&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">))</span>
+    
+    
+<span class="n">flights</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can read <strong>CSV</strong> files using <strong>bodo</strong> in a similar way you would do using <strong>dask</strong>
+or <strong>pandas</strong>, actually you will use the pandas command <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> inside a <code class="docutils literal notranslate"><span class="pre">bodo.jit</span></code>
+function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bodo</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="nd">@bodo</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span> <span class="nf">read_flight_csv</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+        <span class="s1">&#39;data/nycflights/&#39;</span><span class="p">,</span>
+        <span class="n">parse_dates</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]},</span>
+        <span class="c1"># it needs all fields here</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;Year&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span>
+            <span class="s1">&#39;Month&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">,</span>
+            <span class="s1">&#39;DayofMonth&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">,</span>
+            <span class="s1">&#39;DayOfWeek&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">,</span>
+            <span class="s1">&#39;DepTime&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+            <span class="s1">&#39;CRSDepTime&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+            <span class="s1">&#39;ArrTime&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+            <span class="s1">&#39;CRSArrTime&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+            <span class="s1">&#39;UniqueCarrier&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s1">&#39;FlightNum&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span>
+            <span class="s1">&#39;TailNum&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s1">&#39;ActualElapsedTime&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+            <span class="s1">&#39;CRSElapsedTime&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+            <span class="s1">&#39;AirTime&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+            <span class="s1">&#39;ArrDelay&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+            <span class="s1">&#39;DepDelay&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+            <span class="s1">&#39;Origin&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s1">&#39;Dest&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s1">&#39;Distance&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+            <span class="s1">&#39;TaxiIn&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+            <span class="s1">&#39;TaxiOut&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+            <span class="s1">&#39;Cancelled&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">,</span>
+            <span class="s1">&#39;Diverted&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">read_flight_csv</span><span class="p">()</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:182: BodoWarning: No parallelism found for function &#39;read_flight_csv&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.5921385288238525 s
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Month</th>
+      <th>DayofMonth</th>
+      <th>DayOfWeek</th>
+      <th>DepTime</th>
+      <th>CRSDepTime</th>
+      <th>ArrTime</th>
+      <th>CRSArrTime</th>
+      <th>UniqueCarrier</th>
+      <th>FlightNum</th>
+      <th>...</th>
+      <th>AirTime</th>
+      <th>ArrDelay</th>
+      <th>DepDelay</th>
+      <th>Origin</th>
+      <th>Dest</th>
+      <th>Distance</th>
+      <th>TaxiIn</th>
+      <th>TaxiOut</th>
+      <th>Cancelled</th>
+      <th>Diverted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1990</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1621.0</td>
+      <td>1540.0</td>
+      <td>1747.0</td>
+      <td>1701.0</td>
+      <td>US</td>
+      <td>33</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>46.0</td>
+      <td>41.0</td>
+      <td>EWR</td>
+      <td>PIT</td>
+      <td>319.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1990</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1547.0</td>
+      <td>1540.0</td>
+      <td>1700.0</td>
+      <td>1701.0</td>
+      <td>US</td>
+      <td>33</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>-1.0</td>
+      <td>7.0</td>
+      <td>EWR</td>
+      <td>PIT</td>
+      <td>319.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1990</td>
+      <td>1</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1546.0</td>
+      <td>1540.0</td>
+      <td>1710.0</td>
+      <td>1701.0</td>
+      <td>US</td>
+      <td>33</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>9.0</td>
+      <td>6.0</td>
+      <td>EWR</td>
+      <td>PIT</td>
+      <td>319.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1990</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+      <td>1542.0</td>
+      <td>1540.0</td>
+      <td>1710.0</td>
+      <td>1701.0</td>
+      <td>US</td>
+      <td>33</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>9.0</td>
+      <td>2.0</td>
+      <td>EWR</td>
+      <td>PIT</td>
+      <td>319.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1990</td>
+      <td>1</td>
+      <td>5</td>
+      <td>5</td>
+      <td>1549.0</td>
+      <td>1540.0</td>
+      <td>1706.0</td>
+      <td>1701.0</td>
+      <td>US</td>
+      <td>33</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>9.0</td>
+      <td>EWR</td>
+      <td>PIT</td>
+      <td>319.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 23 columns</p>
+</div></div></div>
+</div>
+<p>You can also run it using <code class="docutils literal notranslate"><span class="pre">%%px</span></code> command:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">px</span>
+import time
+
+import bodo
+import pandas as pd
+import numpy as np
+
+@bodo.jit
+def read_flight_csv():
+    return pd.read_csv(
+        &#39;data/nycflights/&#39;,
+        parse_dates={&#39;Date&#39;: [0, 1, 2]},
+        # it needs all fields here
+        dtype={
+            &#39;Year&#39;: np.int16,
+            &#39;Month&#39;: np.int8,
+            &#39;DayofMonth&#39;: np.int8,
+            &#39;DayOfWeek&#39;: np.int8,
+            &#39;DepTime&#39;: np.float32,
+            &#39;CRSDepTime&#39;: np.float32,
+            &#39;ArrTime&#39;: np.float32,
+            &#39;CRSArrTime&#39;: np.float32,
+            &#39;UniqueCarrier&#39;: str,
+            &#39;FlightNum&#39;: np.int16,
+            &#39;TailNum&#39;: str,
+            &#39;ActualElapsedTime&#39;: np.float32,
+            &#39;CRSElapsedTime&#39;: np.float32,
+            &#39;AirTime&#39;: np.float32,
+            &#39;ArrDelay&#39;: np.float32,
+            &#39;DepDelay&#39;: np.float32,
+            &#39;Origin&#39;: str,
+            &#39;Dest&#39;: str,
+            &#39;Distance&#39;: np.float32,
+            &#39;TaxiIn&#39;: np.float32,
+            &#39;TaxiOut&#39;: np.float32,
+            &#39;Cancelled&#39;: np.bool_,
+            &#39;Diverted&#39;: np.bool_,
+        }
+    )
+
+t0 = time.time()
+df = read_flight_csv()
+t1 = time.time()
+
+print(t1 - t0, &#39;s&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stdout:0] 7.619726657867432 s
+[stdout:1] 7.535857915878296 s
+[stdout:2] 7.503788232803345 s
+[stdout:3] 7.51956582069397 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stderr:0] 
+/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:182: BodoWarning: No parallelism found for function &#39;read_flight_csv&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, it will result in 4 outputs, one for each process.</p>
+<p>Now, lets try to calculate some interesting information. We will get maximum
+average non-cancelled delay grouped by Airport.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@bodo</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span> <span class="nf">get_largest_delay</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="c1"># Maximum average non-cancelled delay grouped by Airport</span>
+    <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">Cancelled</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Origin&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">DepDelay</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">largest_delay</span> <span class="o">=</span> <span class="n">get_largest_delay</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:182: BodoWarning: No parallelism found for function &#39;get_largest_delay&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.188231229782104 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>And we can do same thing but using <code class="docutils literal notranslate"><span class="pre">%%px</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">px</span>
+
+@bodo.jit
+def get_largest_delay(df):
+    # Maximum average non-cancelled delay grouped by Airport
+    return df[~df.Cancelled].groupby(&#39;Origin&#39;).DepDelay.mean().max()
+
+
+t0 = time.time()
+largest_delay = get_largest_delay(df)
+t1 = time.time()
+
+print(t1 - t0, &#39;s&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stdout:0] 3.4489574432373047 s
+[stdout:1] 3.4456801414489746 s
+[stdout:2] 3.4475417137145996 s
+[stdout:3] 3.4464614391326904 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stderr:0] 
+/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:182: BodoWarning: No parallelism found for function &#39;get_largest_delay&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the next examples, we will use just the <code class="docutils literal notranslate"><span class="pre">%%px</span></code> approach.</p>
+<div class="section" id="some-questions-to-consider">
+<h2>Some Questions to Consider:<a class="headerlink" href="#some-questions-to-consider" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>How much speedup is possible using <strong>bodo</strong> in a single core.</p></li>
+<li><p>Given how many cores are on this machine, how much faster could the parallel processing be than the single-threaded one.</p></li>
+<li><p>Could it be faster using eager compilation approach?</p></li>
+</ul>
+<p>For the first time calling a <code class="docutils literal notranslate"><span class="pre">jitted</span></code> function, it will compile the function for the parameters passed.
+So, it will take an extra time for the compilation. For the second time calling the function, as it is already
+compiled, it should be faster than before. One way to avoid this extra time when calling a function for the first
+time is to compile it when you are defining your function. This is also know as <strong>eager compilation</strong>. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">px</span>
+
+import bodo
+
+@bodo.jit(&#39;int64(int64,int64)&#39;)
+def calc_add(a: int, b: int) -&gt; int:
+    return a + b
+
+
+calc_add(1, 2)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Out[0:17]: </span>3
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Out[1:17]: </span>3
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Out[2:17]: </span>3
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Out[3:17]: </span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, you can pass to <code class="docutils literal notranslate"><span class="pre">bodo.jit</span></code> decorator the information about the parameters and return types.
+In this way, the <code class="docutils literal notranslate"><span class="pre">jit</span></code> decorator will compile the function for that specific signature.</p>
+</div>
+<div class="section" id="making-a-cluster">
+<h2>Making a cluster<a class="headerlink" href="#making-a-cluster" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ipython-parallel">
+<h3>IPython parallel<a class="headerlink" href="#ipython-parallel" title="Permalink to this headline">¶</a></h3>
+<p>As you can observe in the initial of this document, if you want to use <code class="docutils literal notranslate"><span class="pre">%%px</span></code>
+to process your code in parallel (that uses <strong>MPI</strong> under the hood), you need
+first to define a <strong>IPython Parallel Client</strong> and a profile (here we are using
+a profile calle <strong>mpi</strong>).</p>
+<p>At this point, if you followed first the
+<a class="reference external" href="https://quansight.github.io/bodo-benchmarks/00_introduction.html">Introductory notebook</a>
+you should have already the environment working. But it is important to understand
+what is happening here.</p>
+<p>First, you need to create the <strong>IPython</strong> profile. In a terminal, run the following commands:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ipython profile create --parallel --profile<span class="o">=</span>mpi
+</pre></div>
+</div>
+<p>Now, you need to start your clusters for the profile you just created:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ipcluster start -n <span class="m">4</span> --profile<span class="o">=</span>mpi <span class="p">&amp;</span>
+</pre></div>
+</div>
+<p>The clusters are now available, and you can connect from the <strong>Jupyter notebook</strong> using
+<code class="docutils literal notranslate"><span class="pre">ipyparallel</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipyparallel</span> <span class="k">as</span> <span class="nn">ipp</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ipp</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s2">&quot;mpi&quot;</span><span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">c</span><span class="p">[:]</span>
+<span class="n">view</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+<span class="n">view</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">view</span><span class="p">[</span><span class="s2">&quot;cwd&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="o">%</span><span class="k">px</span> cd $cwd
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stdout:0] /home/xmn/dev/bodoai/bodo-benchmarks/notebooks
+[stdout:1] /home/xmn/dev/bodoai/bodo-benchmarks/notebooks
+[stdout:2] /home/xmn/dev/bodoai/bodo-benchmarks/notebooks
+[stdout:3] /home/xmn/dev/bodoai/bodo-benchmarks/notebooks
+</pre></div>
+</div>
+</div>
+</div>
+<p>For more informantion about how to use <strong>ipyparallel</strong> with <strong>MPI</strong>, please check the
+<a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/mpi.html">documentation page</a></p>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>This notebook was inpired by
+<a class="reference external" href="https://github.com/dask/dask-tutorial/">Dask tutorials</a> and
+<a class="reference external" href="https://docs.bodo.ai/latest/source/getting_started.html">Bodo documentation</a>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Quansight Team<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
