@@ -139,3 +139,4 @@ bodo.lic
 
 # temporary data
 notebooks/data/*
+notebooks/nycflights.tar.gz
