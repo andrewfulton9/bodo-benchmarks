@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array computation with Bodo &#8212; Tutorials about Bodo library</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="JIT-compiling scikit-learn functions inside Bodo" href="sklearn_demo.html" />
+    <link rel="prev" title="Distributed, Advanced" href="06_distributed_advanced.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Tutorials about Bodo library</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="00_introduction.html">
+   Introduction
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_distributed.html">
+     Distributed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_distributed_advanced.html">
+     Distributed, Advanced
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Array computation with Bodo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_demo.html">
+     JIT-compiling scikit-learn functions inside Bodo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_demo.html#classification">
+     Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_demo.html#clustering">
+     Clustering
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_distributed.html">
+   Distributed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_distributed_advanced.html">
+   Distributed, Advanced
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Array computation with Bodo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sklearn_demo.html">
+   JIT-compiling scikit-learn functions inside Bodo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sklearn_demo.html#classification">
+   Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sklearn_demo.html#clustering">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/array_demo.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Quansight/bodo-benchmarks"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Quansight/bodo-benchmarks/issues/new?title=Issue%20on%20page%20%2Farray_demo.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Quansight/bodo-benchmarks/edit/main/array_demo.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Quansight/bodo-benchmarks/main?urlpath=tree/array_demo.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="array-computation-with-bodo">
+<h1>Array computation with Bodo<a class="headerlink" href="#array-computation-with-bodo" title="Permalink to this headline">¶</a></h1>
+<p>Bodo allows for JIT-compiled and MPI-distributed code execution for Numpy- and Pandas-based programs.</p>
+<p>First, we’ll import what we need.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bodo</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">ipyparallel</span> <span class="k">as</span> <span class="nn">ipp</span>
+<span class="kn">import</span> <span class="nn">numba</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ipp</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s2">&quot;mpi&quot;</span><span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">c</span><span class="p">[:]</span>
+<span class="n">view</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+<span class="n">view</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">view</span><span class="p">[</span><span class="s2">&quot;cwd&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="o">%</span><span class="k">px</span> cd $cwd
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">0</span><span class="n">a42fdc62a66</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">bodo</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">ipyparallel</span> <span class="k">as</span> <span class="nn">ipp</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">numba</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;bodo&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since Bodo extends Numba, without any parallelism we can see some code acceleration for basic loop-based code. Here we have a basic matrix multiply function and we can see that Bodo performs similarly to Numba.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+                <span class="n">out</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+<span class="n">numba_matmul</span> <span class="o">=</span> <span class="n">numba</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">matmul</span><span class="p">)</span>
+<span class="n">bodo_matmul</span> <span class="o">=</span> <span class="n">bodo</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">matmul</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> out = matmul(a,b)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>603 ms ± 10.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> out = numba_matmul(a,b)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>202 µs ± 13.7 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> out = bodo_matmul(a,b)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>198 µs ± 26.5 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dale/anaconda3/envs/Bodo/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;matmul&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+</div>
+</div>
+<p>While Bodo is certainly effective at accerating algorithmic code, it is designed for use in standard analysis pipelines. Here we can generate a random array compute the sum across the first axis and return a slice of the result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="c1"># using Numpy</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">8000</span><span class="p">,</span> <span class="mi">8000</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[::</span><span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.39 s, sys: 39.3 ms, total: 1.43 s
+Wall time: 1.43 s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="c1"># using Bodo</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">8000</span><span class="p">,</span> <span class="mi">8000</span><span class="p">))</span>
+
+<span class="nd">@bodo</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span> <span class="nf">array_sum</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>    
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[::</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">array_sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dale/anaconda3/envs/Bodo/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;array_sum&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.02 s, sys: 36 ms, total: 2.06 s
+Wall time: 2.05 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see from the warning we didn’t get any parallelism from this function. To enable MPI inside of a Jupyter notebook we need to use the %%px cell magic. Also, inside the JIT decorator we can tell Bodo what objects we would like to distribute. In this case, we’ll distribute the array ‘x’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">px</span>
+%%time
+
+
+import numpy as np
+import bodo
+
+x = np.random.normal(10, 0.1, size=(8000, 8000))
+
+@bodo.jit(distributed=[&#39;x&#39;])
+def array_sum(x):
+    y = x.sum(axis=0)[::100]
+array_sum(x)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stdout:0] 
+CPU times: user 2.38 s, sys: 70.6 ms, total: 2.45 s
+Wall time: 2.45 s
+[stdout:1] 
+CPU times: user 2.4 s, sys: 37 ms, total: 2.44 s
+Wall time: 2.44 s
+[stdout:2] 
+CPU times: user 2.45 s, sys: 70 ms, total: 2.52 s
+Wall time: 2.54 s
+[stdout:3] 
+CPU times: user 2.57 s, sys: 41.9 ms, total: 2.61 s
+Wall time: 2.61 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bodo support a large portion of the Numpy.ndarray API. Here we can see how it performs with matrix multiply and elementwise multiply.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">4000</span><span class="p">,</span><span class="mi">4000</span><span class="p">))</span>
+<span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.42 s, sys: 36.1 ms, total: 1.45 s
+Wall time: 1.48 s
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6613.10857233, 4985.22299454, 4967.0096968 , ..., 4944.15787411,
+        4962.45570918, 5024.09110694],
+       [4985.22299454, 6641.94719669, 4980.24049265, ..., 4966.06562832,
+        4954.87059481, 5048.20910047],
+       [4967.0096968 , 4980.24049265, 6618.30575987, ..., 4943.68686453,
+        4960.93817956, 5035.38475147],
+       ...,
+       [4944.15787411, 4966.06562832, 4943.68686453, ..., 6676.50723882,
+        4958.39803417, 5008.26384702],
+       [4962.45570918, 4954.87059481, 4960.93817956, ..., 4958.39803417,
+        6609.38072068, 5001.54931209],
+       [5024.09110694, 5048.20910047, 5035.38475147, ..., 5008.26384702,
+        5001.54931209, 6771.24013721]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">px</span>
+%%time
+
+import numpy as np
+import bodo
+
+@bodo.jit
+def dot():
+    A = np.random.random((4000,4000))
+    return A.dot(A.T) * 5
+dot()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stdout:0] 
+CPU times: user 4.48 s, sys: 148 ms, total: 4.63 s
+Wall time: 4.62 s
+[stdout:1] 
+CPU times: user 4.55 s, sys: 127 ms, total: 4.68 s
+Wall time: 4.66 s
+[stdout:2] 
+CPU times: user 4.53 s, sys: 111 ms, total: 4.64 s
+Wall time: 4.62 s
+[stdout:3] 
+CPU times: user 4.59 s, sys: 131 ms, total: 4.72 s
+Wall time: 4.7 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stderr:0] 
+/home/dale/anaconda3/envs/Bodo/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;dot&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+[stderr:1] 
+/home/dale/anaconda3/envs/Bodo/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;dot&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+[stderr:2] 
+/home/dale/anaconda3/envs/Bodo/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;dot&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+[stderr:3] 
+/home/dale/anaconda3/envs/Bodo/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:180: BodoWarning: No parallelism found for function &#39;dot&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Out[0:13]: </span>
+array([[6549.31493325, 4934.71881109, 4854.00281397, ..., 4943.82146498,
+        5013.17831785, 4879.60686016],
+       [4934.71881109, 6690.74829348, 4942.71338107, ..., 5051.67575504,
+        5017.53486812, 4943.84624566],
+       [4854.00281397, 4942.71338107, 6576.72292076, ..., 4997.46079528,
+        5008.23689438, 4926.81070032],
+       ...,
+       [4943.82146498, 5051.67575504, 4997.46079528, ..., 6749.56177356,
+        5105.19363168, 5004.15213347],
+       [5013.17831785, 5017.53486812, 5008.23689438, ..., 5105.19363168,
+        6793.5573002 , 5031.60800397],
+       [4879.60686016, 4943.84624566, 4926.81070032, ..., 5004.15213347,
+        5031.60800397, 6601.60650939]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Out[1:13]: </span>
+array([[6561.94382376, 5050.62079619, 4928.85175852, ..., 4860.17007196,
+        4971.20655104, 4879.67868334],
+       [5050.62079619, 6828.79771849, 5166.43391521, ..., 5066.12086631,
+        5097.69170661, 5034.09766605],
+       [4928.85175852, 5166.43391521, 6712.05720872, ..., 5011.95407599,
+        4958.44056326, 5018.71360619],
+       ...,
+       [4860.17007196, 5066.12086631, 5011.95407599, ..., 6558.52038069,
+        4995.72217924, 4945.14494714],
+       [4971.20655104, 5097.69170661, 4958.44056326, ..., 4995.72217924,
+        6679.83092895, 4959.98391125],
+       [4879.67868334, 5034.09766605, 5018.71360619, ..., 4945.14494714,
+        4959.98391125, 6605.17063217]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Out[2:13]: </span>
+array([[6638.78930873, 4954.86227183, 4929.13692585, ..., 4929.40446717,
+        4986.7108257 , 4988.89217535],
+       [4954.86227183, 6569.7342018 , 4919.06699744, ..., 4933.28317015,
+        4987.33531995, 4881.66082614],
+       [4929.13692585, 4919.06699744, 6646.73912693, ..., 4864.80317895,
+        5004.22205429, 4940.04506403],
+       ...,
+       [4929.40446717, 4933.28317015, 4864.80317895, ..., 6562.06352389,
+        4975.00797189, 4922.02962773],
+       [4986.7108257 , 4987.33531995, 5004.22205429, ..., 4975.00797189,
+        6724.50281105, 4979.87894362],
+       [4988.89217535, 4881.66082614, 4940.04506403, ..., 4922.02962773,
+        4979.87894362, 6601.58659428]])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Out[3:13]: </span>
+array([[6458.97497218, 4933.51340083, 4887.48950067, ..., 4896.80684146,
+        4901.90465838, 4936.62178744],
+       [4933.51340083, 6764.10891506, 5051.44551924, ..., 5029.93870267,
+        5005.24567035, 5090.85666185],
+       [4887.48950067, 5051.44551924, 6607.58719422, ..., 4931.07005764,
+        4965.65978352, 5005.98816171],
+       ...,
+       [4896.80684146, 5029.93870267, 4931.07005764, ..., 6633.90954576,
+        4920.26418979, 5024.89828036],
+       [4901.90465838, 5005.24567035, 4965.65978352, ..., 4920.26418979,
+        6616.47527018, 5034.33736194],
+       [4936.62178744, 5090.85666185, 5005.98816171, ..., 5024.89828036,
+        5034.33736194, 6724.25547082]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="06_distributed_advanced.html" title="previous page">Distributed, Advanced</a>
+    <a class='right-next' id="next-link" href="sklearn_demo.html" title="next page">JIT-compiling scikit-learn functions inside Bodo</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Quansight Team<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
