@@ -1,0 +1,614 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Distributed, Advanced &#8212; Tutorials about Bodo library</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Distributed" href="05_distributed.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Tutorials about Bodo library</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_distributed.html">
+   Distributed
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Distributed, Advanced
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/06_distributed_advanced.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Quansight/bodo-benchmarks"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Quansight/bodo-benchmarks/issues/new?title=Issue%20on%20page%20%2F06_distributed_advanced.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Quansight/bodo-benchmarks/edit/main/06_distributed_advanced.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Quansight/bodo-benchmarks/main?urlpath=tree/06_distributed_advanced.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributed-diagnostics">
+   Distributed Diagnostics¶
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-questions-to-consider">
+   Some questions to consider
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src="img/logo.svg" align="right" style="background:black;height:50px; padding-left:5px;padding-right:5px;padding-bottom:0px;"><div class="section" id="distributed-advanced">
+<h1>Distributed, Advanced<a class="headerlink" href="#distributed-advanced" title="Permalink to this headline">¶</a></h1>
+<p>In the previous chapter, we saw how to configure and use bodo inside a
+<strong>Jupyter notebook</strong> using <strong>IPython parallel</strong> (and <strong>MPI</strong> under the hood).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipyparallel</span> <span class="k">as</span> <span class="nn">ipp</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">ipp</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s2">&quot;mpi&quot;</span><span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">c</span><span class="p">[:]</span>
+<span class="n">view</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+<span class="n">view</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">view</span><span class="p">[</span><span class="s2">&quot;cwd&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="o">%</span><span class="k">px</span> cd $cwd
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stdout:0] /home/xmn/dev/bodoai/bodo-benchmarks/notebooks
+[stdout:1] /home/xmn/dev/bodoai/bodo-benchmarks/notebooks
+[stdout:2] /home/xmn/dev/bodoai/bodo-benchmarks/notebooks
+[stdout:3] /home/xmn/dev/bodoai/bodo-benchmarks/notebooks
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this chapter, we will check how to debug and diagnosticate the distribution found by <strong>bodo</strong>.</p>
+<div class="section" id="distributed-diagnostics">
+<h2>Distributed Diagnostics¶<a class="headerlink" href="#distributed-diagnostics" title="Permalink to this headline">¶</a></h2>
+<p>If you want to understand how a <strong>bodo</strong> compiled function is distributing internally the process,
+you can set the environment variable <code class="docutils literal notranslate"><span class="pre">BODO_DISTRIBUTED_DIAGNOSTICS=1</span></code> or you can call
+<code class="docutils literal notranslate"><span class="pre">distributed_diagnostics()</span></code> on the compiled function.</p>
+<p>For the examples here, we will measure the execution time inside the function to avoid
+the time for the function compilation (it maybe would add some extra unnecessary time
+to the function).</p>
+<p>So, lets start loading the same data we used in the previous chapter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">px</span>
+import time
+
+import bodo
+import pandas as pd
+import numpy as np
+
+@bodo.jit
+def read_flight_csv():
+    t0 = time.time()
+    df = pd.read_csv(
+        &#39;data/nycflights/&#39;,
+        parse_dates={&#39;Date&#39;: [0, 1, 2]},
+        # it needs all fields here
+        dtype={
+            &#39;Year&#39;: np.int16,
+            &#39;Month&#39;: np.int8,
+            &#39;DayofMonth&#39;: np.int8,
+            &#39;DayOfWeek&#39;: np.int8,
+            &#39;DepTime&#39;: np.float32,
+            &#39;CRSDepTime&#39;: np.float32,
+            &#39;ArrTime&#39;: np.float32,
+            &#39;CRSArrTime&#39;: np.float32,
+            &#39;UniqueCarrier&#39;: str,
+            &#39;FlightNum&#39;: np.int16,
+            &#39;TailNum&#39;: str,
+            &#39;ActualElapsedTime&#39;: np.float32,
+            &#39;CRSElapsedTime&#39;: np.float32,
+            &#39;AirTime&#39;: np.float32,
+            &#39;ArrDelay&#39;: np.float32,
+            &#39;DepDelay&#39;: np.float32,
+            &#39;Origin&#39;: str,
+            &#39;Dest&#39;: str,
+            &#39;Distance&#39;: np.float32,
+            &#39;TaxiIn&#39;: np.float32,
+            &#39;TaxiOut&#39;: np.float32,
+            &#39;Cancelled&#39;: np.bool_,
+            &#39;Diverted&#39;: np.bool_,
+        }
+    )
+    t1 = time.time()
+    print(t1 - t0, &#39;s&#39;)
+    return df
+
+
+df = read_flight_csv()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stdout:0] 4.598684072494507 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stderr:0] 
+/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:182: BodoWarning: No parallelism found for function &#39;read_flight_csv&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, lets create a simple function using this data and we will call
+<code class="docutils literal notranslate"><span class="pre">distributed_diagnostics()</span></code> to check the internal configuration of the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">px</span>
+
+@bodo.jit
+def avg_distance_by_year(df):
+    t0 = time.time()
+    avg_distance = df.groupby(&#39;Year&#39;)[&#39;Distance&#39;].mean()
+    t1 = time.time()
+    print(t1 - t0, &#39;s&#39;)
+    return avg_distance
+
+result = avg_distance_by_year(df)
+print(result)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stdout:0] 
+0.056852102279663086 s
+Year
+1990     815.490565
+1991     819.447871
+1992     837.750969
+1993     862.320965
+1994     860.493017
+1995     950.021784
+1996     965.890125
+1997     983.892431
+1998    1018.454424
+1999    1032.901512
+Name: Distance, dtype: float64
+[stdout:1] 
+Year
+1990     815.490565
+1991     819.447871
+1992     837.750969
+1993     862.320965
+1994     860.493017
+1995     950.021784
+1996     965.890125
+1997     983.892431
+1998    1018.454424
+1999    1032.901512
+Name: Distance, dtype: float64
+[stdout:2] 
+Year
+1990     815.490565
+1991     819.447871
+1992     837.750969
+1993     862.320965
+1994     860.493017
+1995     950.021784
+1996     965.890125
+1997     983.892431
+1998    1018.454424
+1999    1032.901512
+Name: Distance, dtype: float64
+[stdout:3] 
+Year
+1990     815.490565
+1991     819.447871
+1992     837.750969
+1993     862.320965
+1994     860.493017
+1995     950.021784
+1996     965.890125
+1997     983.892431
+1998    1018.454424
+1999    1032.901512
+Name: Distance, dtype: float64
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stderr:0] 
+/home/xmn/.conda/envs/bodoai-nb/lib/python3.8/site-packages/bodo/transforms/distributed_analysis.py:182: BodoWarning: No parallelism found for function &#39;avg_distance_by_year&#39;. This could be due to unsupported usage. See distributed diagnostics for more information.
+  warnings.warn(BodoWarning(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">px</span>
+
+avg_distance_by_year.distributed_diagnostics()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stdout:0] 
+Distributed diagnostics for function avg_distance_by_year, &lt;ipython-input-47-cdec4a558198&gt; (1)
+
+Data distributions:
+   df                        REP
+   $14call_method.6.12173    REP
+   $14call_method.6.12182    REP
+   Distance.12185            REP
+   Year.12184                REP
+   $cyumk.12242.12282        REP
+   $I.12196.12283            REP
+   $16call_method.7.12205    REP
+   $avg_distance.12284       REP
+   $52return_value.21        REP
+
+Parfor distributions:
+No parfors to distribute.
+
+Distributed listing for function avg_distance_by_year, &lt;ipython-input-47-cdec4a558198&gt; (1)
+------------------------------------------------------------| parfor_id/variable: distribution
+@bodo.jit                                                   | 
+def avg_distance_by_year(df):                               | 
+    t0 = time.time()----------------------------------------| df: REP
+    avg_distance = df.groupby(&#39;Year&#39;)[&#39;Distance&#39;].mean()----| $14call_method.6.12173: REP, $14call_method.6.12182: REP, Distance.12185: REP, Year.12184: REP, $cyumk.12242.12282: REP, $I.12196.12283: REP, $16call_method.7.12205: REP, $avg_distance.12284: REP
+    t1 = time.time()                                        | 
+    print(t1 - t0, &#39;s&#39;)                                     | 
+    return avg_distance-------------------------------------| $52return_value.21: REP
+
+Setting distribution of variable &#39;df&#39; to REP: Distributed analysis replicated argument df (variable df). Set distributed flag for df if distributed partitions are passed (e.g. @bodo.jit(distributed=[&#39;df&#39;])).
+</pre></div>
+</div>
+</div>
+</div>
+<p>As can be observed, the process were replicated to the all cores availables.
+When the function is called it raises a warning (
+<code class="docutils literal notranslate"><span class="pre">BodoWarning:</span> <span class="pre">No</span> <span class="pre">parallelism</span> <span class="pre">found</span> <span class="pre">for</span> <span class="pre">function</span> <span class="pre">'avg_distance_by_year</span></code>) and we could check this
+information using <code class="docutils literal notranslate"><span class="pre">distributed_diagnostics</span></code>, which all the variables are marked as replicated.</p>
+<p>We can try to use the <em>distributed</em> parameter to help to for the distribution for a variable.
+Lets try to apply it to the previous function to see if it improves the performance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">px</span>
+
+@bodo.jit(distributed=[&#39;df&#39;, &#39;avg_distance&#39;])
+def avg_distance_by_year(df):
+    t0 = time.time()
+    avg_distance = df.groupby(&#39;Year&#39;)[&#39;Distance&#39;].mean()
+    t1 = time.time()
+    print(t1 - t0, &#39;s&#39;)
+    return avg_distance
+
+
+result = avg_distance_by_year(df)
+print(result)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stdout:0] 
+0.05691814422607422 s
+Year
+1996    965.890125
+1997    983.892431
+Name: Distance, dtype: float64
+[stdout:1] 
+Year
+1991    819.447871
+1992    837.750969
+Name: Distance, dtype: float64
+[stdout:2] 
+Year
+1990     815.490565
+1994     860.493017
+1995     950.021784
+1998    1018.454424
+1999    1032.901512
+Name: Distance, dtype: float64
+[stdout:3] 
+Year
+1993    862.320965
+Name: Distance, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">px</span>
+
+avg_distance_by_year.distributed_diagnostics()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[stdout:0] 
+Distributed diagnostics for function avg_distance_by_year, &lt;ipython-input-49-f1175f063965&gt; (1)
+
+Data distributions:
+   df                          1D_Block_Var
+   $14call_method.6.12492      1D_Block_Var
+   $14call_method.6.12501      1D_Block_Var
+   Distance.12504              1D_Block_Var
+   Year.12503                  1D_Block_Var
+   $cyumk.12561.12603          1D_Block_Var
+   $I.12515.12604              1D_Block_Var
+   $16call_method.7.12524      1D_Block_Var
+   $avg_distance.12605         1D_Block_Var
+   $cgibeiklu.12480.12607      1D_Block_Var
+   distributed_return.12483    1D_Block_Var
+
+Parfor distributions:
+No parfors to distribute.
+
+Distributed listing for function avg_distance_by_year, &lt;ipython-input-49-f1175f063965&gt; (1)
+------------------------------------------------------------| parfor_id/variable: distribution
+@bodo.jit(distributed=[&#39;df&#39;, &#39;avg_distance&#39;])               | 
+def avg_distance_by_year(df):                               | 
+    t0 = time.time()----------------------------------------| df: 1D_Block_Var
+    avg_distance = df.groupby(&#39;Year&#39;)[&#39;Distance&#39;].mean()----| $14call_method.6.12492: 1D_Block_Var, $14call_method.6.12501: 1D_Block_Var, Distance.12504: 1D_Block_Var, Year.12503: 1D_Block_Var, $cyumk.12561.12603: 1D_Block_Var, $I.12515.12604: 1D_Block_Var, $16call_method.7.12524: 1D_Block_Var, $avg_distance.12605: 1D_Block_Var
+    t1 = time.time()                                        | 
+    print(t1 - t0, &#39;s&#39;)                                     | 
+    return avg_distance-------------------------------------| distributed_return.12483: 1D_Block_Var
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example using <strong>distributed</strong> parameter, we can observe that the result were split across the
+processors and no variable was replicated, with no difference between both execution time (<strong>~0.06 s</strong>).</p>
+</div>
+<div class="section" id="some-questions-to-consider">
+<h2>Some questions to consider<a class="headerlink" href="#some-questions-to-consider" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Why using <strong>distributed</strong> parameter didn’t improve the execution time?</p></li>
+<li><p>Would the <strong>distributed</strong> parameter usage have a better the performance for a largest dataset?</p></li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>For more information check the <a class="reference external" href="https://docs.bodo.ai/latest/source/user_guide.html#distributed-diagnostics">bodo documentation page</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="05_distributed.html" title="previous page">Distributed</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Quansight Team<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
