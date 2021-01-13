@@ -1,3 +1,4 @@
 file: 00_introduction
 sections:
 - file: 05_distributed
+- file: 06_distributed_advanced
