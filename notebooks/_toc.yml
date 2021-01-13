@@ -3,3 +3,5 @@ sections:
 - file: 00_introduction
 - file: 05_distributed
 - file: 06_distributed_advanced
+- file: array_demo
+- file: sklearn_demo
